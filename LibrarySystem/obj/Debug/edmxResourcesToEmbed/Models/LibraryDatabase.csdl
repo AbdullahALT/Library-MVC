@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LibraryDatabase" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="LibraryDatabaseContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="LibraryDatabase.Book" />
+    <EntitySet Name="Authors" EntityType="LibraryDatabase.Author" />
+    <AssociationSet Name="Writer" Association="LibraryDatabase.Wrote">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Author" EntitySet="Authors" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Edition" Type="Int32" Nullable="false" />
+    <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Author" Relationship="LibraryDatabase.Wrote" FromRole="Book" ToRole="Author" />
+    <Property Name="Writer" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Specialty" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Books" Relationship="LibraryDatabase.Wrote" FromRole="Author" ToRole="Book" />
+  </EntityType>
+  <Association Name="Wrote">
+    <End Type="LibraryDatabase.Book" Role="Book" Multiplicity="*" />
+    <End Type="LibraryDatabase.Author" Role="Author" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Writer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

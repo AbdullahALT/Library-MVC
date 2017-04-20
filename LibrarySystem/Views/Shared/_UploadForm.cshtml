@@ -1,0 +1,17 @@
+﻿<div class="form-group">
+    <label class="control-label col-md-2">Image</label>
+    <div class="col-md-10">
+        <div class="fileUpload btn btn-primary">
+            <span>Upload</span>
+            <input type="file" name="file" id="file" class="upload" />
+
+        </div>
+        <label id="file-name"></label>
+    </div>
+</div>
+
+<script>
+    document.getElementById("file").onchange = function () {
+        document.getElementById("file-name").innerHTML = this.value;
+    };
+</script>

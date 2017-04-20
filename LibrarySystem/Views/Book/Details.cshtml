@@ -1,0 +1,67 @@
+﻿@model LibrarySystem.Models.Book
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            <img src="@Url.Content(Model.Image)" alt="Book Cover" height="225" width="180" class="img-responsive" />
+
+        </div>
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Type)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Type)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Edition)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Edition)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ReleaseDate.Year)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Author.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Author.Name)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

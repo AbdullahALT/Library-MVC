@@ -4,11 +4,20 @@
     ViewBag.Title = "Delete";
 }
 
-<h2 class="text-danger">Delete</h2>
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+    <li><a href="@Url.Action("Index")">Books List</a></li>
+    <li class="active">Delete</li>
+</ol>
 
-<h3 class="text-info">Are you sure you want to delete this?</h3>
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    You can't recover from deleting this book, please review the information below before you confirm
+</div>
+
 <div>
-    <h4 class="text-danger">Note that you can't recover from this action</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -55,14 +64,15 @@
 
     <hr />
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         @Html.HiddenFor(model => model.BookId)
 
         <div class="form-actions no-color">
             @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
-            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            <input type="submit" value="Delete" class="btn btn-danger" />
         </div>
     }
 </div>

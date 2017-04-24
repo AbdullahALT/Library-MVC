@@ -4,9 +4,12 @@
     ViewBag.Title = "Authors List";
 }
 
-<h2>@ViewBag.Title</h2>
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+    <li class="active">Authors List</li>
+</ol>
 
-<table class="table">
+<table class="table table-hover table-condensed">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Image)
@@ -23,33 +26,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @if (item.Image != null)
-            {
-                <img src="@Url.Content(item.Image)" alt="Author Picture" height="100" width="80" class="img-responsive" />
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specialty)
-        </td>
-        <td>
-            @item.Books.Count
-        </td>
-        <td>
-            <p class="right">
-                @Html.ActionLink("Details", "Details", new { id = item.AuthorId }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Edit", "Edit", new { id = item.AuthorId }, new { @class = "btn btn-default" })
-                
-            </p>
-        </td>
-        
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.Image != null)
+                {
+                    <img src="@Url.Content(item.Image)" alt="Author Picture" height="100" width="80" class="img-responsive" />
+                }
+            </td>
+            <td>
+                @Html.ActionLink(item.Name, "Details", new { id = item.AuthorId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialty)
+            </td>
+            <td>
+                @item.Books.Count
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-success">edit</i> </a>
+            </td>
+
+        </tr>
+    }
 
 </table>
 

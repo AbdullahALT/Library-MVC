@@ -4,7 +4,11 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+    <li><a href="@Url.Action("Index")">Authors List</a></li>
+    <li class="active">Create</li>
+</ol>
 
 @using (Html.BeginForm("Create", "Author", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

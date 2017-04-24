@@ -4,8 +4,11 @@
     ViewBag.Title = "Book Details";
 }
 
-<h2>@ViewBag.Title</h2>
-
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+    <li><a href="@Url.Action("Index")">Books List</a></li>
+    <li class="active">Details</li>
+</ol>
 <div>
     <hr />
     <div class="row">

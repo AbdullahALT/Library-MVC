@@ -47,3 +47,7 @@ select {
 .right {
     text-align: right;
 }
+
+ol {
+    margin-top: 20px;
+}

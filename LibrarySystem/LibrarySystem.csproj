@@ -239,10 +239,12 @@
   <ItemGroup>
     <Content Include="Content\Theme\Flatly\bootstrap.min.css" />
     <Content Include="Content\Theme\Flatly\Site.css" />
+    <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Theme\Original\bootstrap.css" />
     <Content Include="Content\Theme\Original\bootstrap.min.css" />
+    <Content Include="Content\Theme\Original\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Theme\Flatly\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Theme\Original\Site.css" />
     <Content Include="Images\Books\Capture.PNG" />
@@ -269,6 +271,12 @@
     <Content Include="Models\LibraryDatabase.edmx.diagram">
       <DependentUpon>LibraryDatabase.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Theme\Original\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Theme\Original\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Theme\Original\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\Library.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -339,9 +347,9 @@
     <Folder Include="Images\Authors\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Theme\Flatly\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Theme\Flatly\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Theme\Flatly\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

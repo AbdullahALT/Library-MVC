@@ -4,8 +4,11 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+    <li><a href="@Url.Action("Index")">Books List</a></li>
+    <li class="active">Edit</li>
+</ol>
 
 @using (Html.BeginForm("Edit", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

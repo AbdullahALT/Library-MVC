@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="IsTypeOf(LibraryDatabase.Book)">
         <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="BookId" ColumnName="BookId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -17,6 +18,8 @@
     <EntitySetMapping Name="Authors">
       <EntityTypeMapping TypeName="IsTypeOf(LibraryDatabase.Author)">
         <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />

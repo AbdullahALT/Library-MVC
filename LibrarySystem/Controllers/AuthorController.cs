@@ -44,13 +44,18 @@ namespace LibrarySystem.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Manager")]
-        public ActionResult Create(Author author)
+        public ActionResult Create(Author author, HttpPostedFileBase file)
         {
             using (var context = new LibraryDatabaseContainer())
             {
-                context.Authors.Add(author);
-                context.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid && FileHandler.isValidFile(file, new[] { "image/jpg", "image/jpeg", "image/png" }))
+                {
+                    author.Image = FileHandler.FileSave(file, "~/Images/Authors", this);
+                    context.Authors.Add(author);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(author);
             }
 
         }
@@ -69,15 +74,20 @@ namespace LibrarySystem.Controllers
         [HttpPost]
         [Authorize(Roles = "Manager")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Author author)
+        public ActionResult Edit(Author author, HttpPostedFileBase file)
         {
             using (var context = new LibraryDatabaseContainer())
             {
-                Author oldAuthor = context.Authors.Find(author.AuthorId);
-                oldAuthor.Name = author.Name;
-                oldAuthor.BirthDate = author.BirthDate;
-                oldAuthor.Specialty = author.Specialty;
-                context.SaveChanges();
+                if (ModelState.IsValid && FileHandler.isValidFile(file, new[] { "image/jpg", "image/jpeg", "image/png" }))
+                {
+                    Author oldAuthor = context.Authors.Find(author.AuthorId);
+                    oldAuthor.Image = FileHandler.FileSave(file, "~/Images/Authors", this);
+                    oldAuthor.Name = author.Name;
+                    oldAuthor.BirthDate = author.BirthDate;
+                    oldAuthor.Specialty = author.Specialty;
+                    oldAuthor.Description = author.Description;
+                    context.SaveChanges(); 
+                }
             }
             return RedirectToAction("Index");
         }

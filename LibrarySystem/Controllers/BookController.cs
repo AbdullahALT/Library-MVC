@@ -78,8 +78,9 @@ namespace LibrarySystem.Controllers
             using (var context = new LibraryDatabaseContainer())
             {
 
-                if (ModelState.IsValid && PhotoSave(book, file))
+                if (ModelState.IsValid && FileHandler.isValidFile(file, new[] { "image/jpeg", "image/jpg", "image/png" }))
                 {
+                    book.Image = FileHandler.FileSave(file, "~/Images/Books", this);
                     context.Books.Add(book);
                     context.SaveChanges();
                     return RedirectToAction("Index"); 
@@ -120,12 +121,14 @@ namespace LibrarySystem.Controllers
                 Book oldBook = context.Books.Find(book.BookId);
                 if (ModelState.IsValid)
                 {
-                    if (PhotoSave(oldBook, file))
+                    if (FileHandler.isValidFile(file, new[] {"image/jpeg", "image/jpg", "image/png" }))
                     {
                         oldBook.Title = book.Title;
                         oldBook.Type = book.Type;
                         oldBook.Edition = book.Edition;
                         oldBook.ReleaseDate = book.ReleaseDate;
+                        oldBook.Image = FileHandler.FileSave(file, "~/Images/Books", this);
+                        oldBook.Description = book.Description;
                         context.SaveChanges();
                         return RedirectToAction("Index");
                     }
@@ -139,22 +142,24 @@ namespace LibrarySystem.Controllers
 
         }
 
-        private bool PhotoSave(Book book, HttpPostedFileBase file)
-        {
-            if (file != null && file.ContentLength > 0)
-            {
-                if (file.ContentType == "image/jpg" || file.ContentType == "image/png" || file.ContentType == "image/jpeg")
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images/Books"), fileName);
-                    file.SaveAs(path);
-                    book.Image = "~/Images/Books/" + fileName;
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
+        //private bool PhotoSave(Book book, HttpPostedFileBase file)
+        //{
+        //    if (file != null && file.ContentLength > 0)
+        //    {
+        //        if (file.ContentType == "image/jpg" || file.ContentType == "image/png" || file.ContentType == "image/jpeg")
+        //        {
+        //            var fileName = Path.GetFileName(file.FileName);
+        //            var path = Path.Combine(Server.MapPath("~/Images/Books"), fileName);
+        //            file.SaveAs(path);
+        //            book.Image = "~/Images/Books/" + fileName;
+        //            return true;
+        //        }
+        //        return false;
+        //    }
+        //    return false;
+        //}
+
+        
 
     }
 }

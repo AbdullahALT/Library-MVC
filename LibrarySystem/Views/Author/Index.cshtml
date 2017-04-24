@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LibrarySystem.Models.Author>
 
 @{
-    ViewBag.Title = "Author List";
+    ViewBag.Title = "Authors List";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -9,10 +9,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Image)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BirthDate)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Specialty)
@@ -26,10 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @if (item.Image != null)
+            {
+                <img src="@Url.Content(item.Image)" alt="Author Picture" height="100" width="80" class="img-responsive" />
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Specialty)
@@ -50,6 +53,5 @@
 
 </table>
 
-<p class="right">
-    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
-</p>
+<hr />
+@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })

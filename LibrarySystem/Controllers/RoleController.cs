@@ -11,7 +11,6 @@ namespace LibrarySystem.Controllers
     public class RoleController : Controller
     {
 
-        ApplicationDbContext context;
         // GET: Role
         public ActionResult Index()
         {

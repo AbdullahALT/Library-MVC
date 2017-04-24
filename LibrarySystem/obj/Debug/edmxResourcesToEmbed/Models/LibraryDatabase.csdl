@@ -20,6 +20,7 @@
     <NavigationProperty Name="Author" Relationship="LibraryDatabase.Wrote" FromRole="Book" ToRole="Author" />
     <Property Name="Writer" Type="Int32" Nullable="false" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
@@ -30,6 +31,8 @@
     <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Specialty" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Books" Relationship="LibraryDatabase.Wrote" FromRole="Author" ToRole="Book" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="Wrote">
     <End Type="LibraryDatabase.Book" Role="Book" Multiplicity="*" />

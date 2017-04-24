@@ -21,6 +21,7 @@ namespace LibrarySystem.Models
         public System.DateTime ReleaseDate { get; set; }
         public int Writer { get; set; }
         public string Image { get; set; }
+        public string Description { get; set; }
     
         public virtual Author Author { get; set; }
     }

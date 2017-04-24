@@ -11,7 +11,8 @@ namespace LibrarySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Author
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,24 @@ namespace LibrarySystem.Models
         }
     
         public int AuthorId { get; set; }
+
+        [Required(ErrorMessage = "This Field Is Required")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "This Field Is Required")]
+        [DataType(DataType.DateTime, ErrorMessage = "Invalid Date")]
+        [Display(Name = "Birth Date")]
         public System.DateTime BirthDate { get; set; }
+
+        [Required(ErrorMessage = "This Field Is Required")]
+        [Display(Name = "Specialty")]
         public string Specialty { get; set; }
+
+        public string Image { get; set; }
+
+        [Display(Name = "Description")]
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }

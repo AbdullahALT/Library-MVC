@@ -13,6 +13,8 @@
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="BirthDate" Type="datetime" Nullable="false" />
           <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Books">
           <Key>
@@ -25,6 +27,7 @@
           <Property Name="ReleaseDate" Type="datetime" Nullable="false" />
           <Property Name="Writer" Type="int" Nullable="false" />
           <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Wrote">
           <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
@@ -70,6 +73,7 @@
           <NavigationProperty Name="Author" Relationship="LibraryDatabase.Wrote" FromRole="Book" ToRole="Author" />
           <Property Name="Writer" Type="Int32" Nullable="false" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -80,6 +84,8 @@
           <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Specialty" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Books" Relationship="LibraryDatabase.Wrote" FromRole="Author" ToRole="Book" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="Wrote">
           <End Type="LibraryDatabase.Book" Role="Book" Multiplicity="*" />
@@ -102,7 +108,8 @@
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="IsTypeOf(LibraryDatabase.Book)">
         <MappingFragment StoreEntitySet="Books">
-          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -115,7 +122,9 @@
     <EntitySetMapping Name="Authors">
       <EntityTypeMapping TypeName="IsTypeOf(LibraryDatabase.Author)">
         <MappingFragment StoreEntitySet="Authors">
-          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="Specialty" ColumnName="Specialty" />

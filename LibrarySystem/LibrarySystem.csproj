@@ -214,7 +214,7 @@
     <Compile Include="Models\Book.cs">
       <DependentUpon>LibraryDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BookModel.cs" />
+    <Compile Include="Models\FileHandler.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LibraryDatabase.Context.cs">
       <AutoGen>True</AutoGen>
@@ -336,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Authors\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

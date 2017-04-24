@@ -1,67 +1,48 @@
 ﻿@model LibrarySystem.Models.Book
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Book Details";
 }
 
-<h2>View</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Book</h4>
     <hr />
     <div class="row">
         <div class="col-md-2">
             <img src="@Url.Content(Model.Image)" alt="Book Cover" height="225" width="180" class="img-responsive" />
 
         </div>
-        <div class="col-md-4">
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Title)
-                </dt>
+        <div class="col-md-10">
+            <h1>@Html.DisplayFor(model => model.Title) <small>@Html.DisplayFor(model => model.Type)</small></h1>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Title)
-                </dd>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Writer): </strong>
+                @Model.Author.Name
+            </p>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Type)
-                </dt>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.ReleaseDate): </strong>
+                @Model.ReleaseDate.Day/@Model.ReleaseDate.Month/@Model.ReleaseDate.Year
+            </p>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Type)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Edition)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Edition)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ReleaseDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ReleaseDate.Year)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Author.Name)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Author.Name)
-                </dd>
-
-            </dl>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Edition): </strong>
+                @Model.Edition
+            </p>
         </div>
     </div>
-    
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@Html.DisplayNameFor(model => model.Description)</h2>
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+    <hr />
+    @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }, htmlAttributes: new { @class = "btn btn-success" })
+
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

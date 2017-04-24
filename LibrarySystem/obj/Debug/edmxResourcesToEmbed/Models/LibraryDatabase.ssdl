@@ -8,6 +8,8 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="BirthDate" Type="datetime" Nullable="false" />
     <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Books">
     <Key>
@@ -20,6 +22,7 @@
     <Property Name="ReleaseDate" Type="datetime" Nullable="false" />
     <Property Name="Writer" Type="int" Nullable="false" />
     <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK_Wrote">
     <End Role="Authors" Type="Self.Authors" Multiplicity="1" />

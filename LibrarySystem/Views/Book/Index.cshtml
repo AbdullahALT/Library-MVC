@@ -45,8 +45,12 @@
         </td>
         <td>
             <p class="btn-group">
-                <a href="@Url.Action("Edit", new { id = item.BookId})"> <i class="material-icons btn btn-success">edit</i> </a>
-                <a href="@Url.Action("Delete", new { id = item.BookId})"> <i class="material-icons btn btn-danger">delete</i> </a>
+                @if (User.IsInRole("Manager"))
+                {
+                    <a href="@Url.Action("Edit", new { id = item.BookId})"> <i class="material-icons btn btn-primary">edit</i> </a>
+                    <a href="@Url.Action("Delete", new { id = item.BookId})"> <i class="material-icons btn btn-danger">delete</i> </a>
+                }
+                
             </p>
             
         </td>
@@ -56,5 +60,5 @@
 </table>
 
 <hr />
-@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
+@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
 

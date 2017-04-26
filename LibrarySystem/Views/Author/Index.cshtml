@@ -45,7 +45,7 @@
                 @item.Books.Count
             </td>
             <td>
-                <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-success">edit</i> </a>
+                <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-primary">edit</i> </a>
             </td>
 
         </tr>
@@ -54,4 +54,4 @@
 </table>
 
 <hr />
-@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
+@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })

@@ -9,6 +9,14 @@
     <li class="active">Authors List</li>
 </ol>
 
+@if (User.IsInRole("Manager"))
+{
+    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
+
+    <hr />
+}
+   
+
 <table class="table table-hover table-condensed">
     <tr>
         <th>
@@ -45,7 +53,10 @@
                 @item.Books.Count
             </td>
             <td>
-                <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-primary">edit</i> </a>
+                @if (User.IsInRole("Manager"))
+                {
+                    <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-primary">edit</i> </a>
+                }
             </td>
 
         </tr>
@@ -53,5 +64,12 @@
 
 </table>
 
-<hr />
-@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
+<nav aria-label="Search Results" style="text-align: center">
+    <ul class="pagination primar">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a href="#">2 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a href="#">3 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+</nav>

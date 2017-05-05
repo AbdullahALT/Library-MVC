@@ -43,11 +43,15 @@ namespace LibrarySystem
                 defaults: new { controller = "Author", action = "Edit", id = 0 }
             );
 
+            
+
             routes.MapRoute(
                 name: "Book",
                 url: "Book/{action}/{id}",
                 defaults: new { controller = "Book", action = "Index", id = UrlParameter.Optional }
             );
+
+            
 
             routes.MapRoute(
                 name: "Author",

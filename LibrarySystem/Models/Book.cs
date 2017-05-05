@@ -11,13 +11,16 @@ namespace LibrarySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class Book
     {
         public int BookId { get; set; }
         public string Title { get; set; }
         public string Type { get; set; }
         public int Edition { get; set; }
+        [DataType(DataType.DateTime)]
         public System.DateTime ReleaseDate { get; set; }
         public int Writer { get; set; }
         public string Image { get; set; }

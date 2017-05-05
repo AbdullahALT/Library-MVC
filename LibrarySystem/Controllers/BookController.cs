@@ -11,14 +11,33 @@ namespace LibrarySystem.Controllers
     public class BookController : Controller
     {
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(string SearchQuery)
         {
             using (var context = new LibraryDatabaseContainer())
             {
                 var books = context.Books.Include("Author").ToList();
-                return View(books);
+                if (!string.IsNullOrEmpty(SearchQuery))
+                {
+                    var SearchResult = from book in books where book.Title.Contains(SearchQuery) select book;
+                    return View(SearchResult);
+                } else
+                {
+                    return View(books);
+                }
             }
         }
+
+        //[HttpPost]
+        //[ActionName("Index")]
+        //public ActionResult GetIndex(string SearchQuery)
+        //{
+        //    using (var context = new LibraryDatabaseContainer())
+        //    {
+        //        var books = context.Books.Include("Author").ToList();
+        //        var searchResult = from book in books where book.Title.Contains(SearchQuery) select book;
+        //        return View(searchResult);
+        //    }
+        //}
 
         public ActionResult Details(int id)
         {

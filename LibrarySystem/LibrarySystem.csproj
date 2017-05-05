@@ -237,6 +237,30 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jQuery\AUTHORS.txt" />
+    <Content Include="Content\jQuery\datepicker.html" />
+    <Content Include="Content\jQuery\external\jquery\jquery.js" />
+    <Content Include="Content\jQuery\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jQuery\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jQuery\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jQuery\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jQuery\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jQuery\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jQuery\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jQuery\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jQuery\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jQuery\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jQuery\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jQuery\index.html" />
+    <Content Include="Content\jQuery\jquery-ui.css" />
+    <Content Include="Content\jQuery\jquery-ui.js" />
+    <Content Include="Content\jQuery\jquery-ui.min.css" />
+    <Content Include="Content\jQuery\jquery-ui.min.js" />
+    <Content Include="Content\jQuery\jquery-ui.structure.css" />
+    <Content Include="Content\jQuery\jquery-ui.structure.min.css" />
+    <Content Include="Content\jQuery\jquery-ui.theme.css" />
+    <Content Include="Content\jQuery\jquery-ui.theme.min.css" />
+    <Content Include="Content\jQuery\LICENSE.txt" />
     <Content Include="Content\Theme\Flatly\bootstrap.min.css" />
     <Content Include="Content\Theme\Flatly\Site.css" />
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.svg" />
@@ -277,8 +301,10 @@
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\jQuery\package.json" />
     <None Include="Properties\PublishProfiles\Library.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

@@ -10,12 +10,20 @@ namespace LibrarySystem.Controllers
     public class AuthorController : Controller
     {
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(string SearchQuery)
         {
             using (var context = new LibraryDatabaseContainer())
             {
                 var authors = context.Authors.Include("Books").ToList();
-                return View(authors);
+                if (string.IsNullOrEmpty(SearchQuery))
+                {
+                    var SearchResult = from author in authors where author.Name.Contains(SearchQuery) select author;
+                    return View(authors);
+                } else
+                {
+                    return View(authors);
+                }
+                
             }
         }
 

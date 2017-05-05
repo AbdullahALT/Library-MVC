@@ -48,6 +48,10 @@ select {
     text-align: right;
 }
 
+.full-width{
+    max-width: 100%;
+}
+
 ol {
     margin-top: 20px;
 }

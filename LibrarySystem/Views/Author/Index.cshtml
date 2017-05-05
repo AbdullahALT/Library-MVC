@@ -15,6 +15,20 @@
 
     <hr />
 }
+else
+{
+    using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="form-group col-md-10">
+                <input type="text" class="form-control full-width" name="SearchQuery" placeholder="Enter An Author Name To Search" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="Search" class="form-control btn btn-primary" />
+            </div>
+        </div>
+    }
+}
    
 
 <table class="table table-hover table-condensed">
@@ -64,12 +78,24 @@
 
 </table>
 
-<nav aria-label="Search Results" style="text-align: center">
-    <ul class="pagination primar">
-        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li class=""><a href="#">2 <span class="sr-only">(current)</span></a></li>
-        <li class=""><a href="#">3 <span class="sr-only">(current)</span></a></li>
-        <li class=""><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-</nav>
+@if (Model.Count() == 0)
+{
+    <div style="text-align: center">
+        <span class="text-primary">Sorry There's No Search Results That Mach You're Keywords</span>
+    </div>
+}
+
+
+@if (!IsPost)
+{
+    <nav aria-label="Search Results" style="text-align: center">
+        <ul class="pagination primar">
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li class=""><a href="#">2 <span class="sr-only">(current)</span></a></li>
+            <li class=""><a href="#">3 <span class="sr-only">(current)</span></a></li>
+            <li class=""><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        </ul>
+    </nav>
+
+}

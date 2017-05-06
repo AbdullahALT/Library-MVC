@@ -9,6 +9,14 @@
     <li class="active">Books List</li>
 </ol>
 
+@if (TempData["BookId"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> The Book Has Been Created. <a href="@Url.Action("Details", new { id = TempData["BookId"] })" class="alert-link">See Details</a>
+    </div>
+}
+
 @if (User.IsInRole("Manager"))
 {
     @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })

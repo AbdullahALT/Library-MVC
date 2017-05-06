@@ -61,6 +61,7 @@ namespace LibrarySystem.Controllers
                     author.Image = FileHandler.FileSave(file, "~/Images/Authors", this);
                     context.Authors.Add(author);
                     context.SaveChanges();
+                    TempData["AuthorId"] = author.AuthorId;
                     return RedirectToAction("Index");
                 }
                 return View(author);

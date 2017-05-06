@@ -20,64 +20,66 @@ else
     using (Html.BeginForm())
     {
         <div class="row">
-            <div class="form-group col-md-10">
+            <div class="form-group col-md-10 col-sm-12">
                 <input type="text" class="form-control full-width" name="SearchQuery" placeholder="Enter An Author Name To Search" />
             </div>
-            <div class="col-md-2">
-                <input type="submit" value="Search" class="form-control btn btn-primary" />
+            <div class="col-md-2 col-sm-12">
+                <input type="submit" value="Search" class="form-control btn btn-primary full-width" />
             </div>
         </div>
     }
 }
    
 
-<table class="table table-hover table-condensed">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specialty)
-        </th>
-        <th>
-            Number of Books
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="table-responsive">
+    <table class="table table-hover table-condensed">
         <tr>
-            <td>
-                @if (item.Image != null)
-                {
-                    <img src="@Url.Content(item.Image)" alt="Author Picture" height="100" width="80" class="img-responsive" />
-                }
-            </td>
-            <td>
-                @Html.ActionLink(item.Name, "Details", new { id = item.AuthorId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialty)
-            </td>
-            <td>
-                @item.Books.Count
-            </td>
-            <td>
-                @if (User.IsInRole("Manager"))
-                {
-                    <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-primary">edit</i> </a>
-                }
-            </td>
-
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialty)
+            </th>
+            <th>
+                Number of Books
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Image != null)
+                {
+                        <img src="@Url.Content(item.Image)" alt="Author Picture" height="100" width="80" class="img-responsive" />
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink(item.Name, "Details", new { id = item.AuthorId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialty)
+                </td>
+                <td>
+                    @item.Books.Count
+                </td>
+                <td>
+                    @if (User.IsInRole("Manager"))
+                {
+                        <a href="@Url.Action("Edit", new { id = item.AuthorId})"> <i class="material-icons btn btn-primary">edit</i> </a>
+                    }
+                </td>
 
+            </tr>
+        }
+
+    </table>
+
+</div>
 @if (Model.Count() == 0)
 {
     <div style="text-align: center">

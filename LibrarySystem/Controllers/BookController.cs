@@ -150,6 +150,7 @@ namespace LibrarySystem.Controllers
                         oldBook.Image = FileHandler.FileSave(file, "~/Images/Books", this);
                         oldBook.Description = book.Description;
                         context.SaveChanges();
+                        TempData["Edited"] = book.BookId;
                         return RedirectToAction("Index");
                     }
                 }

@@ -61,7 +61,7 @@ namespace LibrarySystem.Controllers
                     author.Image = FileHandler.FileSave(file, "~/Images/Authors", this);
                     context.Authors.Add(author);
                     context.SaveChanges();
-                    TempData["AuthorId"] = author.AuthorId;
+                    TempData["Created"] = author.AuthorId;
                     return RedirectToAction("Index");
                 }
                 return View(author);
@@ -95,10 +95,13 @@ namespace LibrarySystem.Controllers
                     oldAuthor.BirthDate = author.BirthDate;
                     oldAuthor.Specialty = author.Specialty;
                     oldAuthor.Description = author.Description;
-                    context.SaveChanges(); 
+                    context.SaveChanges();
+                    TempData["Edited"] = author.AuthorId;
+                    return RedirectToAction("Index");
                 }
+                return View(author);
             }
-            return RedirectToAction("Index");
+            
         }
     }
 }

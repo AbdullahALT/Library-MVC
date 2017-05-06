@@ -55,3 +55,13 @@ select {
 ol {
     margin-top: 20px;
 }
+
+td > a {
+	color: #18bc9c;
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: #18bc9c;
+	text-decoration: underline !important;
+}

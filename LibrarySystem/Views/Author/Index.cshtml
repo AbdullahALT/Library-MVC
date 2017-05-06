@@ -9,11 +9,18 @@
     <li class="active">Authors List</li>
 </ol>
 
-@if (TempData["AuthorId"] != null)
+@if (TempData["Created"] != null)
 {
     <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> The Author Has Been Created. <a href="@Url.Action("Details", new { id = TempData["AuthorId"] })" class="alert-link">See Details</a>
+        <strong>Success!</strong> The Author Has Been Created. <a href="@Url.Action("Details", new { id = TempData["Created"] })" class="alert-link">See Details</a>
+    </div>
+}
+@if (TempData["Edited"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> The Author Has Been Edited. <a href="@Url.Action("Details", new { id = TempData["Edited"] })" class="alert-link">See Details</a>
     </div>
 }
 

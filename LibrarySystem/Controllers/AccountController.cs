@@ -142,7 +142,6 @@ namespace LibrarySystem.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
             return View();
         }
 
@@ -160,7 +159,7 @@ namespace LibrarySystem.Controllers
                 if (result.Succeeded)
                 {
                     //asign role to the user
-                    await UserManager.AddToRoleAsync(user.Id, model.Name);
+                    await UserManager.AddToRoleAsync(user.Id, "Regular");
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

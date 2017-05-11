@@ -102,7 +102,7 @@ namespace LibrarySystem.Controllers
                     book.Image = FileHandler.FileSave(file, "~/Images/Books", this);
                     context.Books.Add(book);
                     context.SaveChanges();
-                    TempData["BookId"] = book.BookId;
+                    TempData["Created"] = book.BookId;
                     return RedirectToAction("Index"); 
                 }
                 var writer = context.Authors.ToList();
